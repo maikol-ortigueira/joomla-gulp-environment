@@ -1,4 +1,6 @@
 const cap = require('capitalize');
+const rs = require('replacestream');
+const through = require('through2');
 // extension variables
 const { extName, header, singular, plural } = require('../../gulp-config.json');
 const compMatchs = ['component', 'singular', 'plural'];
@@ -56,7 +58,30 @@ function miRegex(array, prefix = '', suffix = '') {
 	return v;
 }
 
+
+function replaceArray(matchArray, replaceArray) {
+	return through.obj(function(file, encoding, callback) {
+		if (file.isStream()){
+			file.contents = matchArray.reduce(function (contents, match, index) {
+				return contents.pipe(rs(match, replaceArray[index]));
+			}, file.contents);
+			return callback(null, file);
+		}
+		if (file.isBuffer()) {
+			var result = matchArray.reduce(function (contents, match, index) {
+				return contents
+					.split(match)
+					.join(replaceArray[index]);
+			}, String(file.contents));
+			file.contents = new Buffer.from(result);
+			return callback(null, file);
+		}
+		callback(null, file);
+	});
+};
+
 exports.strsReplace = getComponentReplace();
 exports.strsMatch = getComponentMatch();
 exports.fileMatch = miRegex(compMatchs);
 exports.fileReplace = compMatchsVal;
+exports.replaceArray = replaceArray;

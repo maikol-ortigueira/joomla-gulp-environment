@@ -29,11 +29,3 @@ Dentro de este archivo se encuentran las siguientes variables:
 ## ¿Que tareas puedo ejecutar?
 
 Puedes obtener un listado de todas las tareas escribiendo `gulp -T` en la terminal.
-
-# Documentación
-
-## Índice
-1. [Instalar](#install)
-	1. [Instalar node.JS](#install-node)
-	2. [Inicializar el archivo package.json de tu proyecto](#initialise-package)
-	3. [Instalar Gulp](#install-gulp)
