@@ -1,0 +1,28 @@
+{
+  "wwwDir"        : "___path_to_local_server_folder_probably_var_html_www___",
+  "sourceDir"     : "./extensions",
+  "sourceBoiler"  : ".",
+  "releaseDir"    : "./releases",
+  "watchInterval" : "1000",
+  "defaultTasks"  : [ "copy", "watch" ],
+  "extTypes"      : "components",
+  "extName"       : "___extension_name___",
+  "singular"      : {
+    "en"  : "___english_singular_view_name___",
+    "es"  : "___english_plural_view_name___"
+  },
+  "plural"        : {
+    "en"  : "___spanish_singular_view_name___",
+    "es"  : "___spanish_plural_view_name___"
+  },
+  "header"        : {
+    "version"     : "___extension_version___",
+    "author"      : "___author_name___",
+    "authorEmail" : "___author_email___",
+    "copyright"   : "___your_copyright___",
+    "license"     : "___license___"
+  },
+  "browserConfig" : {
+      "proxy" : "___browser_proxy_probably_localhost___"
+    }
+}

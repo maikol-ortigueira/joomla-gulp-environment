@@ -1,0 +1,23 @@
+{
+  "name": "nuevo-gulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "capitalize": "^2.0.2",
+    "del": "",
+    "file-system": "^2.2.2",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-string-replace": "^1.1.2",
+    "gulp-wait": "0.0.2",
+    "rename": "^1.0.4",
+    "replace-in-file": "^5.0.2"
+  }
+}
