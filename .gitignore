@@ -1,5 +1,6 @@
 node_modules
 extensions/components/*
 gulp-config.json
+package-lock.json
 
 !.gitignore
