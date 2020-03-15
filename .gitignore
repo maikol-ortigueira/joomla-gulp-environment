@@ -4,5 +4,6 @@ gulp-config.json
 package-lock.json
 tmp
 releases
+docs
 
 !.gitignore

@@ -9,10 +9,10 @@
   "extName"       : "___extension_name___",
   "singular"      : {
     "en"  : "___english_singular_view_name___",
-    "es"  : "___english_plural_view_name___"
+    "es"  : "___spanish_singular_view_name___"
   },
   "plural"        : {
-    "en"  : "___spanish_singular_view_name___",
+    "en"  : "___english_plural_view_name___",
     "es"  : "___spanish_plural_view_name___"
   },
   "header"        : {
