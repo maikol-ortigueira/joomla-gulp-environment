@@ -11,7 +11,7 @@ Las ventajas que me aportan son:
 ### Creando mi componente desde cero
 > Deberás crear un archivo con el nombre `gulp-config.json` en la raiz de este paquete. Puedes abrir el archivo de ejemplo que os dejo aquí, configurarlo a vuestro entorno y renombrarlo.
 
-Inicio mi componente con `gulp new-component`. Esta tarea genera, a partir de la plantilla que os dejo en la carpeta *joomla-components-boilerplate* las carpetas y los archivos necesarios para iniciar el componente. Esta plantilla podrás modificarla a tu antojo. Las variables que he utilizo para esta plantilla son:
+Inicio mi componente con `gulp new-component`. Esta tarea genera, a partir de la plantilla que os dejo en la carpeta *joomla-components-boilerplate* las carpetas y los archivos necesarios para iniciar el componente. Esta plantilla podrás modificarla a tu antojo. Las variables que utilizo para esta plantilla son:
 * [component] [Component] [COMPONENT] que será sustituido por el valor de `"extName": este valor` dentro del archivo `gulp-config.json`
 * [plural] [Plural] [PLURAL] que será sustituido por el valor de `"plural": {"en": este valor `
 * [singular] [Singular] [SINGULAR] que será sustituido por el valor de `"singular": {"en": este valor `
@@ -34,7 +34,9 @@ A partir de este primer paso disponemos de las siguientes tareas:
 ## Requisitos
 Para utilizar este código yo estoy utilizando Ubuntu 18.04 y he instalado [Node.JS](http://nodejs.org/) y posteriormente [Gulp](http://gulpjs.com/).
 
-Mi entorno de pruebas
+### Mi entorno de pruebas
+Para probar mis extensiones utilizo lando con esta receta [Lando Boilerplates for Joomla, WordPress and PrestaShop](https://github.com/anibalsanchez/lando-boilerplates-for-joomla-wordpress-and-prestashop) que ha fabricado [Anibal Sánchez](https://github.com/anibalsanchez/), os la recomiento encarecidamente.
+
 
 ## Configuración
 Deberás renombrar el archivo gulp-config.json.dist a gulp-config.json.
