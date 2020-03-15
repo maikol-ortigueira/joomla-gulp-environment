@@ -5,7 +5,7 @@ const path = require('path');
 const { extName, extTypes, sourceBoiler, singular, plural, sourceDir } = require('../../gulp-config.json');
 const extDir = path.join(sourceDir, extTypes, extName);
 const sourceNew = sourceBoiler + '/joomla-' + extTypes + '-boilerplate/';
-const { strsMatch, strsReplace, replaceArray } = require('./components-utils.js');
+const { strsMatch, strsReplace, replaceArray, removeTmp } = require('./components-utils.js');
 const footer = require('gulp-footer');
 const fs = require('file-system');
 const del = require('del');
@@ -46,16 +46,6 @@ task("copy:view-lang-to-tmp", () => {
 		.pipe(dest('./tmp'));
 })
 
-// Replace view strings
-task("replace-view-strings", (cb) => {
-	replace({
-		files: './tmp/**',
-		from: strsMatch,
-		to: strsReplace
-	});
-	cb();
-});
-
 // Add language strings to target files
 const languages = ['en-GB', 'es-ES'];
 const clients = ['admin', 'site'];
@@ -92,11 +82,11 @@ task("add:admin:language:en-EN", (cb) => {
 	cb();
 })
 
-task("remove:tmp-languages", (cb) => {
-	del('./tmp/new-view-languages');
+task("remove:tmp", (cb) => {
+	del('./tmp');
 	cb();
 });
 
-task("new-view", series("copy:view-to-tmp", "replace-view-strings", "add:languages", "remove:tmp-languages", "copy:comp-to-target", "remove:tmp", (cb) =>{
+task("new-view", series("copy:view-to-tmp", "add:languages", "remove:tmp", (cb) =>{
 	cb();
 }));

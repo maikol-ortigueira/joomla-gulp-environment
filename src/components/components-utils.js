@@ -1,6 +1,7 @@
 const cap = require('capitalize');
 const rs = require('replacestream');
 const through = require('through2');
+const del = require('del');
 // extension variables
 const { extName, header, singular, plural } = require('../../gulp-config.json');
 const compMatchs = ['component', 'singular', 'plural'];
