@@ -3,5 +3,6 @@ extensions/components/*
 gulp-config.json
 package-lock.json
 tmp
+releases
 
 !.gitignore

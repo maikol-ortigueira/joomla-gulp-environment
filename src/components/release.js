@@ -20,5 +20,5 @@ task("release", ()=> {
 		'!' + path.join(extPath,'docs/**')
 	])
 	.pipe(zip('com_' + extName + '_' + joomlaVersion + '_v' + header.version + '.zip'))
-	.pipe(dest('./tmp'));
+	.pipe(dest(path.join(releaseDir, extTypes, extName)));
 })
