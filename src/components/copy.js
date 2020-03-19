@@ -1,5 +1,7 @@
 const { src, dest, task, series, parallel } = require('gulp');
 const { wwwDir, extName, sourceDir, extTypes } = require('../../gulp-config.json');
+const path = require('path');
+const debug = require('gulp-debug');
 const prefix = "com_";
 const compName = prefix + extName;
 const wwwAdminDir = wwwDir + '/administrator/components/' + compName;
@@ -23,7 +25,7 @@ task("copy:admin", series("clean:admin", "copy:admin:language", "copy:manifest",
 		extDir + '/administrator/**',
 		'!' + extDir + '/administrator/languages/**'
 	])
-	.pipe(dest(wwwAdminDir));
+	.pipe(dest(wwwAdminDir + '/'));
 }));
 // Copy site language
 task("copy:site:language", series("clean:site:language", () => {
@@ -36,13 +38,14 @@ task("copy:site", series("clean:site", "copy:site:language", () => {
 		extDir + '/site/**',
 		'!' + extDir + '/site/languages/**'
 	])
-	.pipe(dest(wwwSiteDir));
+	.pipe(dest(wwwSiteDir + '/'));
 }))
 
 // Copy media
 task("copy:media", series("clean:media", () => {
-	return src(extDir + '/media/**')
-		.pipe(dest(wwwMediaDir));
+	return src(path.join(extDir, 'media', '**'))
+		.pipe(debug())
+		.pipe(dest(wwwMediaDir + '/'));
 }));
 
 // Copy

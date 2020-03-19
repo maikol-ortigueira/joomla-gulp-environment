@@ -44,7 +44,7 @@ Dentro de este archivo se encuentran las siguientes variables:
 * *wwwDir*: ruta al directorio de tu entorno joomla de pruebas. En una lamp en linux podría ser por ejemplo "/var/www/html/joomla". ¡Ojo! no debes añadir la útlima barra "/".
 * *sourceDir*: ruta al directorio donde tengas alojado el código de tu extensión en construcción.
 * *SoruceBoiler*: ruta del directorio con las plantillas modelo de tus extensiones. Dentro de esta carpeta cada tipo de extensión deberá estar incluida dentro de una carpeta que llamada joomla-components-boilerplate para componentes. Mi intención es crear plantillas para módulos, plugins y templates. joomla-modules-boilerplate para módulos, etc.
-* *releaseDir*: Aunque de momento no funciona, tengo previsto añadir una tarea para un instalable para mi extensión. Esta será la ruta en donde se guardarán estos archivos.
+* *releaseDir*: Ruta en donde se guardará el archivo empaquetado de la extensión.
 * *defaultTasks*: Un array con las tareas por defecto. Actualmente se ejecutará copy y posteriormente watch.
 * *extTypes*: Tipo de extensión en plural. Actualmente el código solo está listo para components.
 * *extName*: Nombre de tu extensión sin el prefijo de extensión. (para com_content sería content).

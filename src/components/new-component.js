@@ -7,7 +7,7 @@ const sourceNew = sourceBoiler + '/joomla-' + extTypes + '-boilerplate/';
 const { strsMatch, strsReplace, replaceArray } = require('./components-utils.js');
 
 // Copy to tmp
-task("copy:comp-to-tmp", () => {
+task("new-component", () => {
 	return src([
 		sourceNew + '**',
 		'!' + sourceNew + 'new-view-languages/**'
