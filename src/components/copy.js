@@ -1,7 +1,6 @@
 const { src, dest, task, series, parallel } = require('gulp');
 const { wwwDir, extName, sourceDir, extTypes } = require('../../gulp-config.json');
 const path = require('path');
-const debug = require('gulp-debug');
 const prefix = "com_";
 const compName = prefix + extName;
 const wwwAdminDir = wwwDir + '/administrator/components/' + compName;
@@ -44,7 +43,6 @@ task("copy:site", series("clean:site", "copy:site:language", () => {
 // Copy media
 task("copy:media", series("clean:media", () => {
 	return src(path.join(extDir, 'media', '**'))
-		.pipe(debug())
 		.pipe(dest(wwwMediaDir + '/'));
 }));
 
