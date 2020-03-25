@@ -7,6 +7,7 @@
   "defaultTasks"  : [ "copy", "watch" ],
   "extTypes"      : "components",
   "extName"       : "___extension_name___",
+  "modalTitleField":"title",
   "singular"      : {
     "en"  : "___english_singular_view_name___",
     "es"  : "___spanish_singular_view_name___"

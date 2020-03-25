@@ -6,6 +6,7 @@ const copywww = require('./components/copywww.js');
 const watch = require('./components/watch.js');
 const newComponent = require('./components/new-component.js');
 const newView = require('./components/new-view.js');
+const newModal = require('./components/new-modal.js');
 const release = require('./components/release.js');
 const { defaultTasks } = require('../gulp-config.json');
 

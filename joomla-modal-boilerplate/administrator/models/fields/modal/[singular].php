@@ -1,11 +1,11 @@
 <?php
 /**
- * @package     Joomla.Administrator
- * @subpackage  com_[component]
- *
- * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
+* @version    [version]
+* @package    Com_[Component]
+* @author     [author] <[authorEmail]>
+* @copyright  [copyright]
+* @license    [license]
+*/
 
 defined('JPATH_BASE') or die;
 

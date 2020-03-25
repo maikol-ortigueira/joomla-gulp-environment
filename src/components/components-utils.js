@@ -3,9 +3,9 @@ const rs = require('replacestream');
 const through = require('through2');
 const del = require('del');
 // extension variables
-const { extName, header, singular, plural } = require('../../gulp-config.json');
-const compMatchs = ['component', 'singular', 'plural'];
-const compMatchsVal = [extName, singular.en, plural.en];
+const { extName, header, singular, plural, modalTitleField } = require('../../gulp-config.json');
+const compMatchs = ['component', 'singular', 'plural', 'title'];
+const compMatchsVal = [extName, singular.en, plural.en, modalTitleField];
 // es-ES language variables
 var esMatchs = ['esPlural', 'esSingular'];
 var esRaplace = [cap(plural.es), cap(singular.es)];
