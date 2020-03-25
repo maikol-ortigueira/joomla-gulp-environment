@@ -6,20 +6,20 @@
 	"use strict";
 	/**
 	 * Javascript to insert the link
-	 * View element calls jSelectArticle when an article is clicked
-	 * jSelectArticle creates the link tag, sends it to the editor,
+	 * View element calls jSelect[Singular] when an article is clicked
+	 * jSelect[Singular] creates the link tag, sends it to the editor,
 	 * and closes the select frame.
 	 **/
-	window.jSelectArticle = function (id, title, catid, object, link, lang) {
+	window.jSelect[Singular] = function (id, title, catid, object, link, lang) {
 		var hreflang = '', editor, tag;
 
-		if (!Joomla.getOptions('xtd-articles')) {
+		if (!Joomla.getOptions('xtd-[plural]')) {
 			// Something went wrong!
 			window.parent.jModalClose();
 			return false;
 		}
 
-		editor = Joomla.getOptions('xtd-articles').editor;
+		editor = Joomla.getOptions('xtd-[plural]').editor;
 
 		if (lang !== '')
 		{
@@ -48,7 +48,7 @@
 				event.preventDefault();
 				var functionName = event.target.getAttribute('data-function');
 
-				if (functionName === 'jSelectArticle') {
+				if (functionName === 'jSelect[Singular]') {
 					// Used in xtd_contacts
 					window[functionName](event.target.getAttribute('data-id'), event.target.getAttribute('data-title'), event.target.getAttribute('data-cat-id'), null, event.target.getAttribute('data-uri'), event.target.getAttribute('data-language'));
 				} else {

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_content
+ * @subpackage  com_[component]
  *
  * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -16,14 +16,14 @@ if ($app->isClient('site'))
 	JSession::checkToken('get') or die(JText::_('JINVALID_TOKEN'));
 }
 
-JLoader::register('ContentHelperRoute', JPATH_ROOT . '/components/com_content/helpers/route.php');
+JLoader::register('[Component]HelperRoute', JPATH_ROOT . '/components/com_[component]/helpers/route.php');
 
 // Include the component HTML helpers.
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 
 JHtml::_('behavior.core');
 JHtml::_('behavior.polyfill', array('event'), 'lt IE 9');
-JHtml::_('script', 'com_content/admin-articles-modal.min.js', array('version' => 'auto', 'relative' => true));
+JHtml::_('script', 'com_[component]/admin-[plural]-modal.min.js', array('version' => 'auto', 'relative' => true));
 JHtml::_('bootstrap.tooltip', '.hasTooltip', array('placement' => 'bottom'));
 JHtml::_('bootstrap.popover', '.hasPopover', array('placement' => 'bottom'));
 JHtml::_('behavior.multiselect');
@@ -37,7 +37,7 @@ JHtml::_('formbehavior.chosen', 'select');
 $searchFilterDesc = $this->filterForm->getFieldAttribute('search', 'description', null, 'filter');
 JHtml::_('bootstrap.tooltip', '#filter_search', array('title' => JText::_($searchFilterDesc), 'placement' => 'bottom'));
 
-$function  = $app->input->getCmd('function', 'jSelectArticle');
+$function  = $app->input->getCmd('function', 'jSelect[Singular]');
 $editor    = $app->input->getCmd('editor', '');
 $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn  = $this->escape($this->state->get('list.direction'));
@@ -46,13 +46,13 @@ $onclick   = $this->escape($function);
 if (!empty($editor))
 {
 	// This view is used also in com_menus. Load the xtd script only if the editor is set!
-	JFactory::getDocument()->addScriptOptions('xtd-articles', array('editor' => $editor));
-	$onclick = "jSelectArticle";
+	JFactory::getDocument()->addScriptOptions('xtd-[plural]', array('editor' => $editor));
+	$onclick = "jSelect[Singular]";
 }
 ?>
 <div class="container-popup">
 
-	<form action="<?php echo JRoute::_('index.php?option=com_content&view=articles&layout=modal&tmpl=component&function=' . $function . '&' . JSession::getFormToken() . '=1&editor=' . $editor); ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
+	<form action="<?php echo JRoute::_('index.php?option=com_[component]&view=[plural]&layout=modal&tmpl=component&function=' . $function . '&' . JSession::getFormToken() . '=1&editor=' . $editor); ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
 
 		<?php echo JLayoutHelper::render('joomla.searchtools.default', array('view' => $this)); ?>
 
@@ -132,7 +132,7 @@ if (!empty($editor))
 								. ' data-id="' . $item->id . '"'
 								. ' data-title="' . $this->escape($item->title) . '"'
 								. ' data-cat-id="' . $this->escape($item->catid) . '"'
-								. ' data-uri="' . $this->escape(ContentHelperRoute::getArticleRoute($item->id, $item->catid, $item->language)) . '"'
+								. ' data-uri="' . $this->escape([Component]HelperRoute::get[Singular]Route($item->id, $item->catid, $item->language)) . '"'
 								. ' data-language="' . $this->escape($lang) . '"';
 							?>
 							<a class="select-link" href="javascript:void(0)" <?php echo $attribs; ?>>
@@ -152,7 +152,7 @@ if (!empty($editor))
 							<?php echo $this->escape($item->access_level); ?>
 						</td>
 						<td class="small">
-							<?php echo JLayoutHelper::render('joomla.content.language', $item); ?>
+							<?php echo JLayoutHelper::render('joomla.[component].language', $item); ?>
 						</td>
 						<td class="nowrap small hidden-phone">
 							<?php echo JHtml::_('date', $item->created, JText::_('DATE_FORMAT_LC4')); ?>
